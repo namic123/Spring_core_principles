@@ -20,7 +20,7 @@ public class ApplicationContextBasicFindTest {
     @Test
     @DisplayName("빈 이름으로 조회")
     void findBeanByName(){
-        ClientService clientService = ac.getBean("memberService", ClientService.class);
+        ClientService clientService = ac.getBean("clientService", ClientService.class);
         assertThat(clientService).isInstanceOf(ClientServiceImpl.class);
     }
 
@@ -36,7 +36,7 @@ public class ApplicationContextBasicFindTest {
     @Test
     @DisplayName("구현 타입으로 조회")
     void findBeanByName2(){
-        ClientService clientService = ac.getBean("memberService", ClientServiceImpl.class);  // 구현체
+        ClientService clientService = ac.getBean("clientService", ClientServiceImpl.class);  // 구현체
         assertThat(clientService).isInstanceOf(ClientServiceImpl.class);
     }
 

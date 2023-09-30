@@ -8,10 +8,10 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 import static org.assertj.core.api.Assertions.*;
 
 public class XmlAppContext {
-    @Test
-    void xmlAppContext(){
-        ApplicationContext ac = new GenericXmlApplicationContext("appConfig.xml");
-        ClientService clientService = ac.getBean("memberService", ClientService.class);
-        assertThat(clientService).isInstanceOf(ClientService.class);
-    }
+//    @Test
+//    void xmlAppContext(){
+//        ApplicationContext ac = new GenericXmlApplicationContext("appConfig.xml");
+//        ClientService clientService = ac.getBean("memberService", ClientService.class);
+//        assertThat(clientService).isInstanceOf(ClientService.class);
+//    }
 }

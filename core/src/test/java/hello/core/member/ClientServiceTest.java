@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class ClientServiceTest {
     ClientService clientService;
+
     @BeforeEach
     public void beforeEach(){
         AppConfig appConfig = new AppConfig();

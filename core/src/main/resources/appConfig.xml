@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="clientService" class="hello.core.client.ClientServiceImpl">
-        <constructor-arg name="clientRepository" ref="clientRepository" />
-    </bean>
-    <bean   id="clientRepository" class="hello.core.client.MemoryClientRepository"/>
-    <bean id="orderService" class="hello.core.order.OrderServiceImpl">
-        <constructor-arg name="clientRepository" ref="clientRepository"/>
-        <constructor-arg name="discountPolicy" ref="discountPolicy"/>
-    </bean>
-    <bean id="discountPolicy" class="hello.core.discount.RateDiscountPolicy" />
-</beans>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">-->
+<!--    <bean id="clientService" class="hello.core.client.ClientServiceImpl">-->
+<!--        <constructor-arg name="clientRepository" ref="clientRepository" />-->
+<!--    </bean>-->
+<!--    <bean   id="clientRepository" class="hello.core.client.MemoryClientRepository"/>-->
+<!--    <bean id="orderService" class="hello.core.order.OrderServiceImpl">-->
+<!--        <constructor-arg name="clientRepository" ref="clientRepository"/>-->
+<!--        <constructor-arg name="discountPolicy" ref="discountPolicy"/>-->
+<!--    </bean>-->
+<!--    <bean id="discountPolicy" class="hello.core.discount.RateDiscountPolicy" />-->
+<!--</beans>-->

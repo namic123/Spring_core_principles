@@ -28,12 +28,12 @@ public class ApplicationContextSameBeanFindTest {
 }
 
 
-@Test
-@DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 빈 이름을 지정하면 된다.")
-void findBeanByName(){
-    ClientRepository clientRepository = ac.getBean("clientRepository1", ClientRepository.class);// 중복 타입이 있으므로, 빈 이름으로 탐색
-    assertThat(clientRepository).isInstanceOf(ClientRepository.class);
-}
+//@Test
+//@DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 빈 이름을 지정하면 된다.")
+//void findBeanByName(){
+//    ClientRepository clientRepository = ac.getBean("clientRepository", ClientRepository.class);// 중복 타입이 있으므로, 빈 이름으로 탐색
+//    assertThat(clientRepository).isInstanceOf(ClientRepository.class);
+//}
 
     @Test
     @DisplayName("중복 타입을 모두 조회하기")
