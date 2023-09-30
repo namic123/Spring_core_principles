@@ -5,6 +5,8 @@ import hello.core.member.ClientService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,5 +29,46 @@ public class SingletonTest {
 
         // clientService1 != clientService2
         assertThat(clientService1).isNotSameAs(clientService2);
+    }
+
+    @Test
+    @DisplayName("싱글톤 패턴을 적용한 객체 사용")
+    public void singletonServiceTest(){
+        // private으로 생성자를 막아두었기 때문에 생성자를 호출 시에는 컴파일 오류가 발생한다.
+        // new SingletonService();
+
+        // 1. 조회 : 호출할 때 마다 같은 객체를 반환
+        SingletonService singletonService1 = SingletonService.getInstance();
+
+        // 2. 조회 : 호출할 때 마다 같은 객체를 반환
+        SingletonService singletonService2 = SingletonService.getInstance();
+
+        // 참조 값이 같다.
+        System.out.println("singletonService1 = " + singletonService1);
+        System.out.println("singletonService2 = " + singletonService2);
+
+        // singletonService1 == singletoService2
+        assertThat(singletonService1).isSameAs(singletonService2);
+    }
+
+    // 자바 코드로 싱글톤 패턴을 관리하면, 코드 양이 많아지고 복잡성이 높아진다.
+    // 스프링 컨테이너는 싱글톤 패턴의 모든 단점을 해결하면서 객체를 싱글톤으로 유지할 수 있다.
+    @Test
+    @DisplayName("스프링 컨테이너와 싱글톤")
+    void springContainer(){
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        // 1. 조회 : 호출할 때 마다 같은 객체를 반환
+        ClientService clientService1 = ac.getBean("clientService", ClientService.class);
+
+        // 2. 조회 : 호출할 때 마다 같은 객체를 반환
+        ClientService clientService2 = ac.getBean("clientService", ClientService.class);
+
+        // 참조값이 같은 것을 확인
+        System.out.println("clientService1 = " + clientService1);
+        System.out.println("clientService2 = " + clientService2);
+
+        // clientService1 == clientService2
+    assertThat(clientService1).isSameAs(clientService2);
     }
 }
