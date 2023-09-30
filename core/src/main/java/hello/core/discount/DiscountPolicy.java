@@ -1,9 +1,9 @@
 package hello.core.discount;
 
-import hello.core.member.Member;
+import hello.core.member.Client;
 
 public interface DiscountPolicy {
 
     // return 할인 대상 금액
-    int discount(Member member, int price);
+    int discount(Client client, int price);
 }
