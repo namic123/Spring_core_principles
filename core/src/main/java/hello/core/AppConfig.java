@@ -14,18 +14,26 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {        // 의존성 주입
     @Bean
     public ClientService clientService(){
+        // 1번
+        System.out.println("call AppConfig.clientService");
         return new ClientServiceImpl(clientRepository());
     }
     @Bean
-    public static MemoryClientRepository clientRepository() {
+    public MemoryClientRepository clientRepository() {
+        // 2번
+        System.out.println("call AppConfig.clientRepository");
         return new MemoryClientRepository();
     }
     @Bean
     public OrderService orderService(){
+        // 3번
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(clientRepository(), discountPolicy());
     }
     @Bean
     public static DiscountPolicy discountPolicy() {
+        // 4번
+        System.out.println("call AppConfig.discountPolicy");
         return new RateDiscountPolicy();
     }
 }
