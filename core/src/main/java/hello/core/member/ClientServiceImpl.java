@@ -1,11 +1,20 @@
 package hello.core.member;
 
-// 회원 서비스 구현체
-public class ClientServiceImpl implements ClientService {
-    private ClientRepository clientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+// 회원 서비스 구현체
+@Component
+public class ClientServiceImpl implements ClientService {
+    private final ClientRepository clientRepository;
+    @Autowired
     public ClientServiceImpl(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
+    }
+
+    // 테스트 용도로 작성
+    public ClientRepository getClientRepository(){
+        return clientRepository;
     }
 
     @Override
