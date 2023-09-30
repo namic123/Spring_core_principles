@@ -3,14 +3,23 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Client;
 import hello.core.member.ClientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService{   // 주문 서비스 구현체
     private final ClientRepository clientRepository; // 회원 저장소 객체
     private final DiscountPolicy discountPolicy;  // 할인 정책 인터페이스 (역할)
 
+    @Autowired
     public OrderServiceImpl(ClientRepository clientRepository, DiscountPolicy discountPolicy) {
         this.clientRepository = clientRepository;
         this.discountPolicy = discountPolicy;
+    }
+
+    // 테스트 용도
+    public ClientRepository getClientRepository(){
+        return clientRepository;
     }
 
     @Override
