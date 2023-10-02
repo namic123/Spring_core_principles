@@ -1,5 +1,8 @@
 package hello.core.lifecycle;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
 // 자바 코드
 //외부 네트워크에 미리 연결하는 객체를 하나 생성한다고 가정.(실제 네트워크 연결이 아닌 단순히 문자만 출력)
 //* 클라이언트는 애플리케이션 시작 시점 connect()를 호출해서 연결을 맺어두야하고,
@@ -30,6 +33,7 @@ public class NetworkClient {
 
     // 관례상 많이 사용되는 이름
     // 초기화 콜백
+    @PostConstruct  // 빈생명주기 '초기화 콜백' 에너테이션 방식
     public void init() {
         // 의존 관계 주입이 끝나면 호출하겠다는 메서드
         connect();
@@ -37,6 +41,7 @@ public class NetworkClient {
     }
     // 관례상 많이 사용되는 이름
     // 소멸 콜백
+    @PreDestroy // 빈생명주기 '소멸 전 콜백' 에너테이션 방식
     public void close() {
      disconnect();
     }
