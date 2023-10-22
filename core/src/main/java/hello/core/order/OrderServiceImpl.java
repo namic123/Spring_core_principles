@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 //@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {   // 주문 서비스 구현체
     private final ClientRepository clientRepository; // 회원 저장소 객체
